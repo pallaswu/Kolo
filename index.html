@@ -1,80 +1,305 @@
 <!DOCTYPE html>
-<html>
-  <head>
+<html lang="zh-TW">
+<head>
     <meta charset="UTF-8">
-    <title>Kenny Wu</title>
-    
-  </head>
-  <body>
-    <header>
-      <h1>Kenny Wu's Curriculum Vitae</h1>
-      <select onchange="location = this.value;">
-        <option value="">Select a Section</option>
-        <option value="#experience">Experience</option>
-        <option value="#education">Education</option>
-        <option value="#skills">Skills</option>
-      </select>
-    </header>
-    <main>
-      <section id="objective">
-        <h2>Objective</h2>
-        <p>Actively pursuit professional experty and skills, continuously improve my professional level, and create the greatest value for the company.
-        Continue to develop and improve my leadership skills and professional knowledge, and constantly enhance my strength through continuous learning and practice.
-        Establish a good leadership image and professional image in new enterprises by combining my extroverted personality, excellent self-control characteristics, and habit observation and analysis work style.
-        Help the enterprise achieve long-term growth and stable development by improving the company's operational efficiency and output, and achieve my career goals and social contributions.</p>
-      </section>
-      <section id="experience">
-        <h2>Experience</h2>
-        <article>
-          <h3>Production Manager, Cosmos Shoes Int'l Ltd. (Bangladesh)</h3>
-          <p>August 2016 - Present</p>
-          <ul>
-            <li>Production management</li>
-            <li>Supply chain management</li>
-            <li>Team management</li>
-          </ul>
-        </article>
-        <article>
-          <h3>Business Manager, Wuxi Tianlaibao Fine Chemical Co., Ltd.</h3>
-          <p>June 2009 - July 2016</p>
-          <ul>
-            <li>Customer relationship management</li>
-            <li>Marketing</li>
-            <li>Team management</li>
-          </ul>
-        </article>
-      </section>
-      <section id="education">
-        <h2>Education</h2>
-        <article>
-          <h3>Bachelor of Business Administration, National Open University</h3>
-          <p>Expected graduation in August 2025</p>
-          <a href="http://www.nou.edu.tw"_blank>Visit School Website</a>
-        </article>
-        <article>
-          <h3>Data Processing Science, Qiangshu High School</h3>
-          <p>June 1994</p>
-          <a href="https://www.qshs.tp.edu.tw/nss/p/index" _blank>Visit School Website</a>
-        </article>
-      </section>
-      <section id="certification">
-        <h2>Certification</h2>
-        <ul>
-          <li>PMP International Project Management</li>
-          <li>CSCP International Supply Chain Management</li>
-          <li>CPIM International Industrial Management</li>
-        </ul>
-      </section>
-      <section id="skills">
-        <h2>Skills</h2>
-        <ul>
-          <li>Strong leadership and management skills</li>
-          <li>Excellent communication and interpersonal abilities</li>
-          <li>Detail-oriented approach to tasks</li>
-          <li>Collaborative team player</li>
-          <li>Passionate about fashion and sports industries</li>
-        </ul>
-      </section>
-    </main>
-  </body>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>吳家慶 Kenny Wu 個人作品集</title>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --accent: #3498db;
+            --bg: #f8f9fa;
+            --text: #333;
+            --light: #fff;
+            --gray: #7f8c8d;
+            --radius: 8px;
+            --transition: 0.3s ease;
+        }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--bg);
+        }
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        header {
+            text-align: center;
+            padding: 3rem 0 2rem;
+            background: var(--primary);
+            color: var(--light);
+        }
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        header .title {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        header .contact {
+            margin-top: 1rem;
+            font-size: 0.95rem;
+            opacity: 0.8;
+        }
+        header .contact a {
+            color: var(--light);
+            text-decoration: none;
+            margin: 0 0.5rem;
+        }
+        header .contact a:hover { text-decoration: underline; }
+        section {
+            padding: 3rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        section h2::before {
+            content: "";
+            display: inline-block;
+            width: 4px;
+            height: 24px;
+background: var(--accent);
+            border-radius: 2px;
+        }
+        .content { display: grid; gap: 1.5rem; }
+        .about p { margin-bottom: 1rem; line-height: 1.7; }
+        .experience .job, .education .school {
+            margin-bottom: 1.5rem;
+            padding-left: 1rem;
+            border-left: 3px solid var(--accent);
+        }
+        .experience .job h3, .education .school h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.3rem;
+            color: var(--primary);
+        }
+        .experience .job h4, .education .school h4 {
+            font-size: 1rem;
+            margin-bottom: 0.2rem;
+            color: var(--gray);
+            font-weight: normal;
+        }
+        .experience .job p, .education .school p {
+            margin: 0.4rem 0;
+        }
+        .skills ul, .certifications ul {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            list-style: none;
+        }
+        .skills li, .certifications li {
+            background: var(--light);
+            border: 1px solid #ddd;
+            border-radius: var(--radius);
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+        .skills li:hover, .certifications li:hover {
+            background: var(--accent);
+            color: var(--light);
+            transform: translateY(-2px);
+        }
+        .contact-info {
+            display: grid;
+            gap: 1rem;
+            font-size: 0.95rem;
+        }
+        .contact-info div {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .contact-info svg { width: 18px; height: 18px; fill: var(--accent); }
+        form {
+            display: grid;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        input, textarea, button {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ccc;
+border-radius: var(--radius);
+            font-family: inherit;
+            font-size: 1rem;
+        }
+        textarea { resize: vertical; min-height: 100px; }
+        button {
+            background: var(--primary);
+            color: var(--light);
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        button:hover { background: var(--accent); }
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+        @media (max-width: 600px) {
+            header h1 { font-size: 2rem; }
+            section { padding: 2rem 0; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <h1>吳家慶 Kenny Wu</h1>
+        <div class="title">生產管理 · 業務經理 | 領導與時尚運動產業專家</div>
+        <div class="contact">
+            <a href="mailto:kennywu09@gmail.com">kennywu09@gmail.com</a>
+            <a href="tel:+8869xxxxxxx">+886****9198</a>
+            <a href="#">台北市民生東路一段25號7F-16</a>
+        </div>
+    </div>
+</header>
+
+<section id="about" class="about">
+    <div class="container">
+        <h2>关于我</h2>
+        <div class="content">
+            <p>積極發揮所學到的專業知識和技能，不斷提高自己的專業水平，并在工作中應用所學，為公司創造最大价值。</p>
+            <p>繼續發展和提高自己的領導技能和專業知識，通過持續的學習和實踐，不斷提升自己的實力。</p>
+            <p>通過將外向的個性、自制力佳的特點與習慣觀察分析的工作風格結合在一起，在新的企業中建立良好的領導形象和專業形象。</p>
+            <p>通過提高公司的營運效率和產量，幫助企業實現長期增長和穩定發展，實現自己的職業目標和社會貢獻。</p>
+        </div>
+    </div>
+</section>
+
+<section id="experience" class="experience">
+    <div class="container">
+        <h2>工作經驗</h2>
+        <div class="content">
+            <div class="job">
+                <h3>Cosmos SHOES INT’L LTD. (BANGLADESH)</h3>
+                <h4>生產管理</h4>
+                <p><strong>時間：</strong>2016 年至今</p>
+                <ul>
+                    <li>領導一個由20名幹部組成的團隊，為 Armani 和 Diadora 等品牌成功開發項目。</li>
+                    <li>與 Oneal 和 Leatt 等品牌合作，開發高質量的 MTB 鞋和 MX 靴。</li>
+		    <li>與產品開發團隊合作，創建符合客戶需求和喜好的功能。</li>
+                    <li>與生產團隊合作，提供解決方案並實現提高客戶滿意度。</li>
+		    <li>管理資源與交期，確保項目成功。</li>
+                </ul>
+            </div>
+            <div class="job">
+                <h3>無錫天來寶精細化工有限公司</h3>
+                <h4>業務經理</h4>
+                <p><strong>時間：</strong>2009 年 – 2016 年</p>
+                <ul>
+                    <li>建立和維護與客戶之間的良好關係，帶來了積極的業務和推薦。</li>
+                    <li>運用領導能力激勵和引導團隊成員參與項目的開發和執行。</li>
+                    <li>實現成功的產品推出，帶來了銷售增量和積極的客戶反饋。</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="education" class="education">
+    <div class="container">
+        <h2>教育背景</h2>
+        <div class="content">
+            <div class="school">
+                <h3>國立空中大學</h3>
+                <h4>商學系</h4>
+                <p><strong>畢業時間：</strong>2025 年 6月</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="skills" class="skills">
+    <div class="container">
+        <h2>專業技能</h2>
+        <div class="content">
+            <ul>
+                <li>強有力的領導和管理能力</li>
+                <li>優秀的溝通和人際關係能力</li>
+                <li>注重細節的任務處理方式</li>
+                <li>具有合作精神的協作能力</li>
+                <li>對時尚和運動產業充滿熱情</li>
+                <li>供應鏈管理</li>
+                <li>客戶關係管理</li>
+                <li>市場開發管理</li>
+                <li>項目管理</li>
+                <li>團隊激勵與執行</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section id="certifications" class="certifications">
+    <div class="container">
+        <h2>專業證照</h2>
+        <div class="content">
+            <ul>
+                <li>PMP 國際專案管理</li>
+                <li>PMP-ACP 國際敏捷管理師</li>
+                <li>CSCP 國際供應鏈管理</li>
+                <li>CPIM 國際產業管理</li>
+		<li>CSM 國際敏捷教練</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section id="contact" class="contact">
+    <div class="container">
+        <h2>聯絡我</h2>
+        <div class="content">
+            <form action="mailto:kennywu09@gmail.com" method="post" enctype="text/plain">
+                <input type="text" name="name" placeholder="您的姓名" required>
+                <input type="email" name="email" placeholder="您的 Email" required>
+                <input type="tel" name="phone" placeholder="您的電話號碼">
+                <textarea name="message" placeholder="您的訊息" required></textarea>
+                <button type="submit">發送訊息</button>
+            </form>
+            <div class="contact-info">
+                <div>
+                    <svg viewBox="0 0 24 24"><path d="M20 18c0 2-4 10-9 11s-9-9-9-11h2c0 2 2 6 5 6s5-4 5-6h2c0 2-4 10-9 11s-9-9-9-11h2z"/></svg>
+                    <span>台北市民生東路一段25號7F-16</span>
+                </div>
+                <div>
+                    <svg viewBox="0 0 24 24"><path d="M20 8H4c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2v-8c0-1.1-.9-2-2-2zm0 10H4v-8h16v8z"/></svg>
+                    <span>+886****9198</span>
+                </div>
+                <div>
+                    <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12l5-3 5 3v-12c0-1.1-.9-2-2-2zm0 14H4v-6l4-2 4 2v6z"/></svg>
+                    <span>kennywu09@gmail.com</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <p>&copy; <span id="year"></span> 吳家慶 Kenny Wu. All rights reserved.</p>
+    </div>
+</footer>
+
+<script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
 </html>
+
